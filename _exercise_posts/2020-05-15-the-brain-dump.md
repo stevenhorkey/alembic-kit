@@ -1,7 +1,8 @@
 ---
 title: The Brain Dump
 categories:
-- General
+- Courses
+- Exercises
 feature_image: "https://picsum.photos/2560/600?image=872"
 ---
 
