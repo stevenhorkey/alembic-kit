@@ -1,0 +1,153 @@
+<style>
+
+    #brain-dump-list {
+        display: block;
+        padding: 15px 0px 15px 17px;
+        /* display: none; */
+    }
+
+    #brain-dump-list li {
+        border-bottom: 1px solid gray;
+        /* display: flex;
+        align-items: center; */
+        overflow-wrap: break-word;
+    }
+
+    #brain-dump-list li .item-value{
+        width: calc(100% - 50px);
+        float: left;
+        padding-right: 15px;
+    }
+    #brain-dump-list li .delete-item-btn{
+        float: right;
+    }
+
+</style>
+
+<div id='brain-dump-container'>
+
+    <div class="card">
+        <span id='brain-dump-timer'>
+            20:00
+        </span>
+        <button id="brain-dump-timer-btn">Start</button>
+    </div>
+
+    <form class="card" id='brain-dump-form'>
+        <label>Enter an item:</label>
+        <input id='brain-dump-input' placeholder="Don't hinder yourself..."/>
+        <button id='brain-dump-btn'>Add</button>
+
+        <ul id='brain-dump-list' class="">
+        
+        </ul>
+    </form>
+
+
+</div>
+
+<script defer>
+
+    var btn;
+    var deleteBtn;
+    var input;
+    var list;
+    var timer;
+    var timerBtn;
+    var timerRunning = false;
+    var timerInterval;
+    var activityItems = [];
+
+
+    function slugify(string) {
+        const a = 'àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;'
+        const b = 'aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz------'
+        const p = new RegExp(a.split('').join('|'), 'g')
+
+        return string.toString().toLowerCase()
+            .replace(/\s+/g, '-') // Replace spaces with -
+            .replace(p, c => b.charAt(a.indexOf(c))) // Replace special characters
+            .replace(/&/g, '-and-') // Replace & with 'and'
+            .replace(/[^\w\-]+/g, '') // Remove all non-word characters
+            .replace(/\-\-+/g, '-') // Replace multiple - with single -
+            .replace(/^-+/, '') // Trim - from start of text
+            .replace(/-+$/, '') // Trim - from end of text
+    }
+
+    function addItem(item){
+        console.log(item);
+        if(item === "") return;
+        list.append(`
+            <li>
+                <span class='item-value'>${item}</span>
+                <span class='delete-item-btn' id='${slugify(item)}'>x</span>
+            </li>
+        `);
+        input.val('');
+        activityItems.push(item);
+    }
+
+    function deleteItem(itemId){
+        var listItem = $("#"+itemId).closest('li');
+        listItem.remove();
+    }
+
+    function startTimer(){
+
+        var min = 20;
+
+        var sec = min * 60;
+        var timerInterval = setInterval(function(){
+            console.log(sec);
+            timer.text(sec);
+            sec--;
+            if (sec === 0) {
+                clearInterval(timerInterval);
+                alert("Time's up!");
+            }
+        }, 1000);
+
+    }
+
+    // function pauseTimer(){
+    //     timerInterval
+    // }
+
+    function saveList(){
+        var items = [];
+        list.find('.item-value').each(function(e){
+            items.push($(this).text());
+        });
+        console.log(items);
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+
+        btn = $('#brain-dump-btn');
+        input = $('#brain-dump-input');
+        list = $('#brain-dump-list');
+        timer = $('#brain-dump-timer');
+        timerBtn = $('#brain-dump-timer-btn');
+
+        btn.click(function(e){
+            e.preventDefault();
+            addItem(input.val());
+        });
+
+        $('body').on('click','.delete-item-btn', function(e){
+            e.preventDefault();
+            var id = $(this).attr('id');
+            deleteItem(id);
+        });
+
+        timerBtn.click(function(e){
+            e.preventDefault();
+            if(!timerRunning) startTimer();
+            else pauseTimer();
+        });
+
+
+
+    });
+
+</script>

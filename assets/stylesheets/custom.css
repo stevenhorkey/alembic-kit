@@ -1,0 +1,50 @@
+
+.article h1 {
+    width: 100%;
+    text-align: center;
+}
+
+.article h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.article small.post-meta {
+    width: 100%;
+    text-align: center;
+}
+
+.box-shadow{
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.card {
+    border: 1px solid #eee;
+    border-radius: 3px;
+    padding: 15px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    margin-bottom: 30px;
+}
+
+.card input,
+.card label {
+    width: 100%;
+    display: block;
+}
+.card button {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.item--nav a {
+    color: black;
+}
+
+.logo div {
+    color: black;
+}
+
+.share {
+    text-align: center;
+}

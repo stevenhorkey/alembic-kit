@@ -13,8 +13,40 @@
       .catch(err => {
         console.log("Service Worker: registration failed ", err);
       });
+
+    navigator.serviceWorker
+      .register("{{ "/custom.js" | relative_url }}")
+      .then(registration => {
+        console.log("Jquery: registered");
+      })
+      .catch(err => {
+        console.log("Jquery: registration failed ", err);
+      });
+
+    // navigator.serviceWorker
+    //   .register("{{ "/custom.js" | relative_url }}")
+    //   .then(registration => {
+    //     console.log("Custom JS: registered");
+    //   })
+    //   .catch(err => {
+    //     console.log("Custom JSr: registration failed ", err);
+    //   });
+
+    
+
+
+
+
   };
 
   registerServiceWorker();
 })();
 </script>
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+  crossorigin="anonymous"></script>
+
+  
+<script src='/assets/scripts/custom.js' type="javascript"></script>

@@ -1,5 +1,5 @@
 ---
-title: Partial Perspectives
+title: Courses
 feature_text: |
   ## Partial Perspectives
   Building sense and structure through simple online exercises and worksheets.
