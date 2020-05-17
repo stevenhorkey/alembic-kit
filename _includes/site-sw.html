@@ -14,14 +14,14 @@
         console.log("Service Worker: registration failed ", err);
       });
 
-    navigator.serviceWorker
-      .register("{{ "/custom.js" | relative_url }}")
-      .then(registration => {
-        console.log("Jquery: registered");
-      })
-      .catch(err => {
-        console.log("Jquery: registration failed ", err);
-      });
+    // navigator.serviceWorker
+    //   .register("{{ "/custom.js" | relative_url }}")
+    //   .then(registration => {
+    //     console.log("Jquery: registered");
+    //   })
+    //   .catch(err => {
+    //     console.log("Jquery: registration failed ", err);
+    //   });
 
     // navigator.serviceWorker
     //   .register("{{ "/custom.js" | relative_url }}")

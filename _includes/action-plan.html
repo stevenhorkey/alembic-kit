@@ -1,51 +1,65 @@
 <style>
 
-    #brain-dump-list {
+    label {
+        text-align: center;
+        width: 100%;
         display: block;
-        padding: 15px 0px 15px 17px;
-        /* display: none; */
-        margin: 0;
     }
 
-    #brain-dump-list li {
-        border-bottom: 1px solid gray;
-        /* display: flex;
-        align-items: center; */
-        overflow-wrap: break-word;
+    #activity-header {
+        width: 50%;
     }
-
-    #brain-dump-list li .item-value{
-        width: calc(100% - 50px);
-        float: left;
-        padding-right: 15px;
+    #hours-header {
+        width: 20%;
+        text-align: center;
     }
-    #brain-dump-list li .delete-item-btn{
-        float: right;
+    #value-header {
+        width: 20%;
+        text-align: center;
     }
-
+    #delete-header {
+        width: 10%;
+        text-align: right;
+    }
 
 </style>
 
 
-<div id='brain-dump-container'>
+<div id='exercise-container'>
+
+
+   <div id="action-plan-container">
+       <div class="card action-plan-card">
+            <form>
+                <h2>Action Plan 1</h2>
+                <div>
+                    <label id=''>Long Term Goal</label>
+                    <textarea rows='1'></textarea>
+                </div>
+                <div>
+                    <label id=''>1 Year Goal</label>
+                    <textarea rows='1'></textarea>
+                </div>
+                <div>
+                    <label id=''>1 Month Goal</label>
+                    <textarea rows='1'></textarea>
+                </div>
+                <div>
+                    <label id=''>1 Week Goal</label>
+                    <textarea rows='1'></textarea>
+                </div>
+                <div>
+                    <label id=''>Daily Habit or Action</label>
+                    <textarea rows='1'></textarea>
+                </div>
+            </form>
+        </div>
+   </div>
 
     <div class="card">
-        <div id='brain-dump-timer' class="text-center">
-            20:00
-        </div>
-        <button id="brain-dump-timer-btn">Start Timer</button>
+        <button id='add-btn'>Add Another Action Plan</button>
+        <button class='save-btn' id='exercise-save-btn'>Save All</button>
     </div>
-
-    <form class="card" id='brain-dump-form'>
-        <label class="text-center w-100">Enter an item:</label>
-        <input id='brain-dump-input' placeholder="Don't hinder yourself..."/>
-        <button id='brain-dump-btn'>Add</button>
-
-        <ul id='brain-dump-list' style='display: none;' class="">
-        
-        </ul>
-        <button id='brain-dump-save-btn' style='display:none;'>Save</button>
-    </form>
 
 </div>
 
@@ -56,13 +70,8 @@
     var saveBtn;
     var deleteBtn;
     var input;
-    var list;
-    var timer;
-    var timerBtn;
-    var timerRunning = false;
-    var timerInterval;
+    var actionPlanContainer;
     var activityItems = [];
-    var currentTime = 20 * 60;
 
 
     function slugify(string) {
@@ -80,20 +89,34 @@
             .replace(/-+$/, '') // Trim - from end of text
     }
 
-    function addItem(item){
-        if(item === "") return;
-        activityItems.push(item);
-        if(activityItems.length > 0) {
-            list.show();
-            saveBtn.show();
-        }
-        list.append(`
-            <li>
-                <span class='item-value'>${item}</span>
-                <span class='delete-item-btn' id='${slugify(item)}'><ion-icon name="close-circle-outline"></ion-icon></span>
-            </li>
+    function addItem(count){
+        actionPlanContainer.append(`
+            <div class="card action-plan-card">
+                <form>
+                    <h2>Action Plan ${count}</h2>
+                    <div>
+                        <label id=''>Long Term Goal</label>
+                        <textarea rows='1'></textarea>
+                    </div>
+                    <div>
+                        <label id=''>1 Year Goal</label>
+                        <textarea rows='1'></textarea>
+                    </div>
+                    <div>
+                        <label id=''>1 Month Goal</label>
+                        <textarea rows='1'></textarea>
+                    </div>
+                    <div>
+                        <label id=''>1 Week Goal</label>
+                        <textarea rows='1'></textarea>
+                    </div>
+                    <div>
+                        <label id=''>Daily Habit or Action</label>
+                        <textarea rows='1'></textarea>
+                    </div>
+                </form>
+            </div>
         `);
-        input.val('');
     }
 
     function deleteItem(item){
@@ -148,16 +171,15 @@
 
     document.addEventListener("DOMContentLoaded", function() {
 
-        btn = $('#brain-dump-btn');
-        saveBtn = $('#brain-dump-save-btn');
-        input = $('#brain-dump-input');
-        list = $('#brain-dump-list');
-        timer = $('#brain-dump-timer');
-        timerBtn = $('#brain-dump-timer-btn');
+        btn = $('#add-btn');
+        saveBtn = $('#exercise-save-btn');
+        input = $('#item-input');
+        actionPlanContainer = $('#action-plan-container');
 
         btn.click(function(e){
             e.preventDefault();
-            addItem(input.val());
+            var planCount = $("#action-plan-container > .action-plan-card").length + 1
+            addItem(planCount);
         });
 
         $('body').on('click','.delete-item-btn', function(e){

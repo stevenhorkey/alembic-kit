@@ -1,18 +1,24 @@
 {% if site.navigation_header %}
 <nav class="nav  nav--header">
   <ul class="list  list--nav">
-    {% for item in site.navigation_header %}
-
-      {% if item.url contains '://' %}
-        {% assign url = item.url %}
-      {% else %}
-        {% assign url = item.url | relative_url %}
-      {% endif %}
-
-      <li class="item  item--nav{% if item.url == page.url %}  item--current{% endif %}">
-        <a href="{{ url }}">{{ item.title }}</a>
-      </li>
-    {% endfor %}
+    <li class="item  item--nav{% if item.url == page.url %}  item--current{% endif %}">
+      <a href="/">Home</a>
+    </li>
+    <li class="item  item--nav{% if item.url == page.url %}  item--current{% endif %}">
+      <a href="/about">About</a>
+    </li>
+    <li class="item  item--nav{% if item.url == page.url %}  item--current{% endif %}">
+      <a href="/courses">Courses</a>
+    </li>
+    <li class="item  item--nav{% if item.url == page.url %}  item--current{% endif %}">
+      <a href="/exercises">Exercises</a>
+    </li>
+    <li class="item  item--nav{% if item.url == page.url %}  item--current{% endif %}">
+      <a href="/search">Search</a>
+    </li>
+    <li class="item  item--nav{% if item.url == page.url %}  item--current{% endif %}">
+      <a href="/contact">Contact</a>
+    </li>
   </ul>
   <button class="button  button--nav" aria-label="Menu toggle">
     {% include icon.html id="nav" title="Menu" %}

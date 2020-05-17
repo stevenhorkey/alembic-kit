@@ -36,7 +36,7 @@ plugins:
 - jemoji
 
 # 3. Gem settings
-paginate: 2 # jekyll-paginate > items per page
+paginate: 10 # jekyll-paginate > items per page
 paginate_path: blog/page:num # jekyll-paginate > blog page
 jekyll-mentions: https://twitter.com # jekyll-mentions > service used when @replying
 twitter:
@@ -70,12 +70,26 @@ collections:
     feature_text: |
       Welcome to the blog
     feature_image: "https://picsum.photos/2560/600?image=866"
+    permalink: /:collection/:path
   exercises:
     title: Exercises # Needed for Siteleaf
     output: true
+    defaults:
+      layout: exercise
+    permalink: /exercises/:path/
     description: "My thoughts and ideas" # The post list page content
     feature_text: |
       The Collection of Exercises
+    feature_image: "https://picsum.photos/2560/600?image=866"
+  courses:
+    title: Courses # Needed for Siteleaf
+    output: true
+    defaults:
+      layout: course
+    permalink: /:path/
+    description: "My courses and ideas" # The post list page content
+    feature_text: |
+      The Collection of Courses
     feature_image: "https://picsum.photos/2560/600?image=866"
 
 # 6. Jekyll collections settings
@@ -119,6 +133,8 @@ navigation_header:
   url: /
 - title: Courses
   url: /courses/
+- title: Life
+  url: /courses/life
 - title: Exercises
   url: /exercises/
 - title: Blog

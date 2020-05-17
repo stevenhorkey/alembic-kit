@@ -9,8 +9,7 @@ layout: default
   <div class="content">
 
     <article class="article  article--page  typeset">
-
-      {% if paginator.exercises %}
+      {% if paginator.courses %}
         {% assign collectiondata = site.collections | where: "label", page.collectionpage | first %}
         <h1>{{ collectiondata.title }}</h1>
         {{ collectiondata.description | markdownify }}
@@ -23,7 +22,7 @@ layout: default
 
     </article>
 
-    {% include exercise-list.html %}
+    {% include course-list.html %}
 
   </div>
 
