@@ -34,6 +34,9 @@
         width: 10%;
         text-align: right;
     }
+    .delete-item-btn {
+        cursor: pointer;
+    }
 
 </style>
 
@@ -168,8 +171,7 @@
 
         $('body').on('click','.delete-item-btn', function(e){
             e.preventDefault();
-            var item = $(this).siblings('.item-value');
-            deleteItem(item);
+            $(this).closest('tr').remove();
         });
 
         timerBtn.click(function(e){

@@ -21,6 +21,9 @@
         width: 10%;
         text-align: right;
     }
+    .delete-btn {
+        cursor: pointer;
+    }
 
 </style>
 
@@ -93,6 +96,7 @@
         actionPlanContainer.append(`
             <div class="card action-plan-card">
                 <form>
+                    <span class='delete-btn'><ion-icon name="trash-outline"></ion-icon></span>
                     <h2>Action Plan ${count}</h2>
                     <div>
                         <label id=''>Long Term Goal</label>
@@ -117,22 +121,6 @@
                 </form>
             </div>
         `);
-    }
-
-    function deleteItem(item){
-        var index = activityItems.indexOf(item[0].innerText);
-        if (index !== -1) activityItems.splice(index, 1);
-
-        if(activityItems.length < 1) {
-            list.hide();
-            saveBtn.hide();
-        }
-
-        var itemId = slugify(item[0].innerText);
-
-        var listItem = $("#"+itemId).closest('li');
-
-        listItem.remove();
     }
 
     function fmtMSS(s){return(s-(s%=60))/60+(9<s?':':':0')+s}
@@ -182,10 +170,9 @@
             addItem(planCount);
         });
 
-        $('body').on('click','.delete-item-btn', function(e){
+        $('body').on('click','.delete-btn', function(e){
             e.preventDefault();
-            var item = $(this).siblings('.item-value');
-            deleteItem(item);
+            $(this).closest('.action-plan-card').remove();
         });
 
         timerBtn.click(function(e){

@@ -1,0 +1,99 @@
+---
+layout: default
+---
+
+<!-- <div class="topbar bg-black">
+    <div class="container">
+      <div>
+        <span><a href='/login'>Login</a></span>
+        <span><a href='/register'>Register</a></span>
+      </div>
+    </div>
+  </div> -->
+<header class="header">
+    <div class="container">
+      {% if site.logo %}{% include site-logo.html %}{% endif %}
+  
+      {% include nav-header.html %}
+    </div>
+  
+    {% include site-feature.html %}
+  
+</header>
+
+<section class="bg-black py-5">
+    <div class='container typeset'>
+
+      <h2 class='text-center text-white'>What You Can Find Here</h2>
+
+      <div class="row">
+          <div class="col-3">
+            <a href='/courses'>
+              <div class='card text-white'>
+                <h3 class='text-center'>Courses</h3>
+                <p>Access to free online-courses tailored to your specific chosen goals.</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-3">
+            <a href='/exercises'>
+              <div class='card'>
+                <h3 class='text-center'>Exercises</h3>
+                <p>Free access to the entire online-exercise catalog.</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-3">
+            <a>
+              <div class='card'>
+                <h3 class='text-center'>Blog</h3>
+                <p></p>
+              </div>
+            </a>
+          </div>
+          <div class="col-3">
+            <a>
+              <div class='card'>
+                <h3 class='text-center'>Podcast</h3>
+                <p></p>
+              </div>
+            </a>
+          </div>
+      </div>
+
+      <div class="row">
+          <h3 class="text-center text-white">What Are You Looking for Right Now? (all are vaild)</p>
+          <div class="col-xs-12 col-md-10 mx-auto">
+            <div class="home-needs-container">
+                <button class="btn btn-primary">Security</button>
+                <button class="btn btn-secondary">Volition</button>
+                <button class="btn btn-warning">Attention</button>
+                <button class="btn btn-danger">Emotional Connection</button>
+                <button class="btn btn-success">Connection to Community</button>
+                <button class="btn btn-success">A Sense of Self</button>
+                <button class="btn btn-success">A Sense of Achievement</button>
+                <button class="btn btn-success">Meaning</button>
+                <button class="btn btn-success">Self Transcendence</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</section>
+
+<main class="main  container">
+
+  <article class="article  article--page  content  typeset py-4">
+
+    <h1>{{ page.title }}</h1>
+
+    {{ content }}
+
+  </article>
+
+  {% if page.aside == true %}{% include site-aside.html %}{% endif %}
+
+</main>
+
+{% include site-footer.html %}

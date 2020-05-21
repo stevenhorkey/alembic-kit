@@ -7,9 +7,19 @@
 
   {% elsif page.layout == "page" or page.layout == "home" or page.layout == "blog" %}
     <section class="section  section--description">
-      <h3>About this site</h3>
-      <p>{{ site.description }}</p>
-      {% include nav-social.html %}
+      <!-- <div class=''>
+        <h3>About this site</h3>
+        <p>{{ site.description }}</p>
+        {% include nav-social.html %}
+      </div> -->
+      <div class='card mt-4'>
+        <h3>Download the Free eBook</h3>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+      <div class='card'>
+        <h3>Sign Up For Free</h3>
+        <p>Create an account for free and save all your course-work and exercises online. You'll also get access to member exclusive content.</p>
+      </div>
     </section>
 
   {% elsif page.layout == "categories" %}

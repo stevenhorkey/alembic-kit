@@ -1,0 +1,8 @@
+.header, .share,
+.download-pdf-btn {
+    display: none;
+}
+
+.card {
+    background: #eee;
+}
