@@ -1,5 +1,5 @@
 ---
-title: Partial Perspectives
+title: What Is "Partial Perspectives?"
 feature_text: |
   ## Partial Perspectives
   An attempt to build sense and structure through simple online exercises and worksheets.
@@ -17,33 +17,52 @@ aside: true
   }
 </style>
 
-Partial Perspectives was started out of a need to answer two questions...
+Partial Perspectives is a blog and tool collection that was born out of a need to answer two questions...
 
-**1. How do I create an organized space to document and track my inquiry into life. And...**
+**1. How do we make sense of the world we find ourselves in? And...**
 
-**2. How do I organize and share everything I'm learning and have learned from all the podcasts and audiobooks I'm consuming.**
+**2. How can we trust our answers to the first question?**
 
-What you'll find here is not only exercises that you can complete and save for later from all your favorite podcasts and books.
+_If I'm confident about anything, it's that humans are extremely fallible, full of bias, addicted to approval, and easily deluded into justifying whatever they already do and believe._
 
-But you'll also find courses that mix and match those exercises in unique ways to better guide to you the goals you want to focus on in your life.
+And if you think you're somehow beyond that, _I dare you to think again._
 
-I certainly don't have everything figured out, no one person can. *But that's why we're here... to figure ourselves out.*
+This site is thus an attempt to utilize tools and lessons from data-backed sources in the psychological research literature, as well as ones found in more esoteric ancient wisdom traditions. I feel like it would be a great loss to neglect either, and to not let them inform one another.
+
+Basically, everyone can have a seat at the table here, but no one has a pulpit to preach absolute claims about what is happening here or prescriptions on how we should each live. 
+
+You're an adult - you can decide that for yourself.
+
+<div class='card text-center font-italic'>
+"Cherish those who seek the truth, but beware of those who find it." <br/>
+~ Voltaire
+</div>
+
+But if you're like me, your goal is to create a more fulfilling life rooted in authenticity, ingenuity, careful thinking, connection, and humility.
+
+**Here you'll find a variety of exercises that you can complete and save for later from a wide range of sources, including videos, courses, podcasts, books, etc.**
+
+**Overtime, you'll also find courses that mix and match those exercises in unique ways to better guide you to achieving the goals you want to focus on in your life.**
+
+I certainly don't have everything figured out, no one person can. *But maybe that's why we're here... to figure ourselves out.*
 
 Take a look below to see some of the latest exercises, and don't hesitate to contact me if you have any questions or recommendations.
 
-Take care of yourself and take care of others... but in that order.
-
-
+Lastly, take care of yourself and take care of others... but in that order. 
 
 <div class='flex-center' style="justify-content:left">
   <img src="/assets/images/steven.jpg" style="width: 100px;
       border-radius: 50%;" class='d-inline box-shadow mr-2' />
   <span>
     <div>Stay well ❤️</div>
+    <div>Humility goes a long way.</div>
     <div>~ <em>Steven</em></div>
   </span>
 </div>
-
+---
+<h2>Latest Course</h2>
+{% include course-list.html %}
+---
 <h2>Latest Exercises</h2>
 
 {% include exercise-list.html %}

@@ -31,6 +31,11 @@ body {
   }
   .logo {
     @include flex(0 0 auto);
+    .site-logo-tagline {
+      font-size: 12px;
+      display: block;
+    }
+    flex-flow: column;
   }
   .container {
     @include flexbox;
@@ -160,7 +165,6 @@ body {
     max-width: 34%;
     margin-left: 4%;
     @include flex(1, 0, auto);
-    opacity: 0.5;
     transition: opacity .1s;
     .section {
       position: sticky;

@@ -3,7 +3,7 @@ title: Contact
 
 ---
 
-<p class='text-center'>Have a comment or recommendation?<br/> Feel free to send me an email using the form below. </p>
+<p class='text-center'>Have a comment, question, or recommendation?<br/> Feel free to send me an email using the form below. </p>
 
 <div class='flex-center mb-5' style="justify-content:center">
   <img src="/assets/images/steven.jpg" style="width: 100px;

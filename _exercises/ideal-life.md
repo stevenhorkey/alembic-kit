@@ -1,9 +1,10 @@
 ---
-title: Ideal Life
+title: Your Ideal Life
 categories:
 - Exercises
 feature_image: "https://picsum.photos/2560/600?image=872"
 layout: exercise
+description: People only really change if they are in monumental pain, _or_ if they have an insanely compelling vision for the life they could lead. Take the latter route - this exercise will help you do that.
 ---
 
 The complete distilling apparatus consists of three parts: the "cucurbit" (Arabic ḳarʿa, Greek βίκος), the still pot containing the liquid to be distilled, which is heated by a flame; the "head" or "cap" (Arabic anbiḳ, Greek ἄμβιξ) which fits over the mouth of the cucurbit to receive the vapors, with an attached downward-sloping "tube" (Greek σωλήν), leading to the "receiver" (Arabic ḳābila, Greek ἄγγος or φιάλη) container.
