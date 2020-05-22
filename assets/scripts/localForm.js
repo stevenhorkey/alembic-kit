@@ -1,86 +1,78 @@
-// form.js
-const formId = "save-later-form"; // ID of the form
-const url = location.href; //  href for the page
-// const formIdentifier = `${url} ${formId}`; // Identifier used to identify the form
-const forms = [];
-const saveButton = document.querySelector("#save"); // select save button
-const alertBox = document.querySelector(".alert"); // select alert display div
-// let form = document.querySelector(`#${formId}`); // select form
-// let formElements = form.elements; // get the elements in the form
 
 
-function collectForms(){
-    $("form").each(function(e){
-        formIdentifier = `${url} ${$(this).attr('id')}`;
-        forms.push(formIdentifier);
-    })
+function saveUserInput(){
+    // Get values from user input fields and save to local storage.
+    var values = [];
+    $(".article--exercise").find(':input:not(button)').each(function(el){
+        var input = $(this);
+        var value = input.val();
+        values.push(value);
+    });
+    var json = JSON.stringify(values);
+    localStorage.setItem(location.pathname, json);
+    return json;
 }
-/**
- * This function gets the values in the form
- * and returns them as an object with the
- * [formIdentifier] as the object key
- * @returns {Object}
- */
-const getFormData = () => {
-  let data = { [formIdentifier]: {} };
-  for (const element of formElements) {
-    if (element.name.length > 0) {
-      data[formIdentifier][element.name] = element.value;
+
+function populateInputFields(){
+    // Get values from local storage and place in fields
+    var values = JSON.parse(localStorage.getItem(location.pathname));
+    console.log(values);
+    // remove empty strings
+    if(values){
+        values.forEach(function(value){
+            if(value !== ""){
+                $(".article--exercise").find(':input:not(button)').each(function(i){
+                    var input = $(this);
+                    input.val(values[i]);
+                });
+                return true;
+            } else return false;
+        });
     }
-  }
-  return data;
-};
+    return false;
+}
 
-
-
-/**
- * This function displays a message
- * on the page for 1 second
- *
- * @param {String} message
- */
-const displayAlert = message => {
-  alertBox.innerText = message;
-  alertBox.style.display = "block";
-  setTimeout(function() {
-    alertBox.style.display = "none";
-  }, 1000);
-};
-
-/**
- * This function populates the form
- * with data from localStorage
- *
- */
-const populateForm = () => {
-  if (localStorage.key(formIdentifier)) {
-    const savedData = JSON.parse(localStorage.getItem(formIdentifier)); // get and parse the saved data from localStorage
-    for (const element of formElements) {
-      if (element.name in savedData) {
-        element.value = savedData[element.name];
-      }
+function saveUserInputToDB(jsonData){
+    user = "GYzDZSjdQS";
+    data = {"pathname":location.pathname,"user":user,"entries":jsonData};
+    if(user){
+        $.ajax({
+            type:"POST",
+            beforeSend: function (request)
+            {
+                request.setRequestHeader("X-Parse-Application-Id", 'pp-parse-db');
+            },
+            url: "http://partial-perspectives-parse-db.herokuapp.com/parse/classes/exercises",
+            data: data,
+            dataType: "json",
+            success: function(msg) {
+                console.log(JSON.parse(msg));
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
     }
-    const message = "Form has been refilled with saved data!";
-    displayAlert(message);
-  }
-};
+}
+
 
 document.addEventListener("DOMContentLoaded", function() {
 
-    console.log('loaded');
+    populateInputFields();
 
-    populateForm(); // populate the form when the document is loaded
+    document.onkeypress=function(e){
+        saveUserInput();
+    };
 
-    setInterval(function(){
-        console.log('saving');
-        forms.forEach(function(formIdentifier){
-            data = getFormData();
-            localStorage.setItem(formIdentifier, JSON.stringify(data[formIdentifier]));
-            const message = "Form draft has been saved!";
-            displayAlert(message);
-        });
-        
-    
-    }, 1000);
+    window.onbeforeunload = function(){
+        saveUserInput();
+    };
 
+    // $(".footer").click(function(e){
+    //     e.preventDefault();
+    //     alert('tada');
+    //     var jsonData = saveUserInput();
+    //     saveUserInputToDB(jsonData);
+    // });
+   
 });
