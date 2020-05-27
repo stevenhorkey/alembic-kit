@@ -1,0 +1,204 @@
+<style>
+
+    #meta-meditation-list {
+        display: block;
+        padding: 15px 0px 15px 17px;
+        /* display: none; */
+        margin: 0;
+    }
+
+    #meta-meditation-list li {
+        border-bottom: 1px solid gray;
+        /* display: flex;
+        align-items: center; */
+        overflow-wrap: break-word;
+    }
+
+    #meta-meditation-list li .item-value{
+        width: calc(100% - 50px);
+        float: left;
+        padding-right: 15px;
+    }
+    #meta-meditation-list li .delete-item-btn{
+        float: right;
+    }
+
+    #sound-test {
+        cursor: pointer;
+    }
+
+
+</style>
+
+
+<div id='meta-meditation-container'>
+
+    <div class="card">
+        <p>These lines are merely suggestions, tailor them to your unique-ness.</p>
+        <textarea rows="10" placeholder="May I be happy.&#13;&#10;May I be at peace.&#13;&#10;May I be loved.&#13;&#10;May I be whole."></textarea>
+    </div>
+
+    <p class="text-center">Use the timer to begin whenever you are ready.</p>
+
+    <div class="card">
+        <div id='meta-meditation-timer' class="text-center timer-input-container">
+            <input class="timer-minutes" value="20" />:<input class="timer-seconds" value="00" />
+        </div>
+        <button id="meta-meditation-timer-btn">Start Timer</button>
+        <small  id='sound-test' class="text-center w-100 d-block"><ion-icon name="musical-notes-outline"></ion-icon> Test Sound</small>
+    </div>
+
+    <div class="card">
+        <p>Leave any notes you have about the experience here...</p>
+        <textarea rows="10"></textarea>
+    </div>
+    
+
+</div>
+
+
+<script defer>
+
+    var btn;
+    var saveBtn;
+    var deleteBtn;
+    var input;
+    var list;
+    var timer;
+    var timerBtn;
+    var timerRunning = false;
+    var timerInterval;
+    var activityItems = [];
+    var currentTime = 20 * 60;
+    var bell;
+   
+
+
+    function slugify(string) {
+        const a = 'àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;'
+        const b = 'aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz------'
+        const p = new RegExp(a.split('').join('|'), 'g')
+
+        return string.toString().toLowerCase()
+            .replace(/\s+/g, '-') // Replace spaces with -
+            .replace(p, c => b.charAt(a.indexOf(c))) // Replace special characters
+            .replace(/&/g, '-and-') // Replace & with 'and'
+            .replace(/[^\w\-]+/g, '') // Remove all non-word characters
+            .replace(/\-\-+/g, '-') // Replace multiple - with single -
+            .replace(/^-+/, '') // Trim - from start of text
+            .replace(/-+$/, '') // Trim - from end of text
+    }
+
+    function addItem(item){
+        if(item === "") return;
+        activityItems.push(item);
+        if(activityItems.length > 0) {
+            list.show();
+            saveBtn.show();
+        }
+        list.append(`
+            <li>
+                <span class='item-value'>${item}</span>
+                <span class='delete-item-btn' id='${slugify(item)}'><ion-icon name="close-circle-outline"></ion-icon></span>
+            </li>
+        `);
+        input.val('');
+    }
+
+    function deleteItem(item){
+        var index = activityItems.indexOf(item[0].innerText);
+        if (index !== -1) activityItems.splice(index, 1);
+
+        if(activityItems.length < 1) {
+            list.hide();
+            saveBtn.hide();
+        }
+
+        var itemId = slugify(item[0].innerText);
+
+        var listItem = $("#"+itemId).closest('li');
+
+        listItem.remove();
+    }
+
+    function fmtMSS(s){return(s-(s%=60))/60+(9<s?':':':0')+s}
+
+    function startTimer(){
+
+        var minutes = $(".timer-minutes").val() - 0;
+        var seconds = $(".timer-seconds").val() - 0;
+
+        currentTime = minutes * 60;
+        if(seconds) currentTime += seconds;
+
+        console.log(currentTime, seconds);
+
+        timerRunning = true;
+        timerBtn.text("Pause Timer");
+        var sec = currentTime;
+        timerInterval = setInterval(function(){
+            if (sec === 0) {
+                clearInterval(timerInterval);
+                bell.play();
+                alert("Time's up!");
+            }
+            timer.text(fmtMSS(sec));
+            sec--;
+            currentTime = sec;
+        }, 1000);
+    }
+
+    function pauseTimer(){
+        clearInterval(timerInterval);
+        timerRunning = false;
+    }
+
+    function saveList(){
+        var items = [];
+        list.find('.item-value').each(function(e){
+            items.push($(this).text());
+        });
+        console.log(items);
+    }
+
+    function postData(){
+
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+
+        btn = $('#meta-meditation-btn');
+        saveBtn = $('#meta-meditation-save-btn');
+        input = $('#meta-meditation-input');
+        list = $('#meta-meditation-list');
+        timer = $('#meta-meditation-timer');
+        timerBtn = $('#meta-meditation-timer-btn');
+        soundTest = $('#sound-test');
+        bell = new sound("/assets/sounds/bell.mp3");
+
+        btn.click(function(e){
+            e.preventDefault();
+            addItem(input.val());
+        });
+
+        $('body').on('click','.delete-item-btn', function(e){
+            e.preventDefault();
+            var item = $(this).siblings('.item-value');
+            deleteItem(item);
+        });
+
+        timerBtn.click(function(e){
+            e.preventDefault();
+            if(!timerRunning) startTimer();
+            else pauseTimer();
+        });
+
+        soundTest.click(function(e){
+            bell.stop();
+            bell.sound.currentTime = 0;
+            bell.play();
+        })
+
+    });
+
+</script>

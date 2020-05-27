@@ -15,10 +15,15 @@
       <div class='card mt-4'>
         <h3>Save Your Work In The Cloud</h3>
         <p>Sign-up for a free membership and save all your exercises in the cloud. You'll also periodically get new exercises straight to your inbox.</p>
-        <input type="text" placeholder="First Name..." />
-        <input type="text" placeholder="Last Name..." />
-        <input type="email" placeholder="Email..." />
-        <button>Sign Up</button>
+        <form id='newsletter-form' method="POST">
+          <input type="text" id="firstName" placeholder="First Name..." />
+          <input type="text" id="lastName" placeholder="Last Name..." />
+          <input type="email" id="email-input" placeholder="Email..." />
+          <button type='submit'>Sign Up</button>
+          <div class='form-res'>
+
+          </div>
+        </form>
       </div>
       <!-- <div class='card'>
         <h3>Sign Up For Free</h3>

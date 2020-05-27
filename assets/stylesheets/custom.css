@@ -56,6 +56,10 @@ color: #eee;
   margin: 0 0 10px;
 }
 
+.card p {
+  text-align: center;
+}
+
 .card input {
   padding: 5px 8px;
 }
@@ -71,9 +75,22 @@ color: #eee;
   margin-top: 15px;
 }
 
+.d-block {
+  display: block !important;
+}
+
 .download-pdf-btn {
 display: block;
 margin: 0 auto;
+}
+
+
+.exercise--post.card{
+  background: #fff !important;
+}
+
+.form-res {
+  text-align: center;
 }
 
 .flex-center {
@@ -128,6 +145,13 @@ pre {
 textarea {
 overflow-x : auto;
 line-height: 20px;
+}
+
+.timer-minutes,
+.timer-seconds {
+  width: 50px !important;
+  display: inline-block !important;
+  text-align: center;
 }
 
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,

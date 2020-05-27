@@ -17,6 +17,7 @@
   </section>
 {% else %}
   <section class="section  typeset">
+    <h2 class="text-center mb-5">Exercises</h2>
     <ul class="list  list--posts">
 
       {% for title in page.items %}
@@ -24,7 +25,8 @@
         {% for exercise in site.exercises %}
           {% if title == exercise.title %}
             <li class="item  item--post">
-              <article class="article  article--post">
+              <article class="article  exercise--post">
+                <!-- <img src="{{exercise.feature_image}}" /> -->
                 <h2><a href="{{ site.baseurl }}{{ exercise.url }}">{{ exercise.title }}</a></h2>
                 {% include post-meta.html %}
                 {{ exercise.description | markdownify }}
