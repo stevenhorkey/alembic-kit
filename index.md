@@ -4,7 +4,7 @@ title2: What Is "Partial Perspectives?"
 feature_text: |
   # Partial Perspectives
   An attempt to build sense and structure through simple online exercises and worksheets.
-feature_image: "/assets/images/headers/pp_.png"
+feature_image: "/assets/images/headers/homeh-full.png"
 excerpt: "Alembic is a starting point for [Jekyll](https://jekyllrb.com/) projects. Rather than starting from scratch, this boilerplate is designed to get the ball rolling immediately. Install it, configure it, tweak it, push it."
 layout: home
 aside: true

@@ -78,6 +78,28 @@ function submitForm($form, url, data){
     });
 }
 
+function resizeImages(img){
+    var image = img;
+    var imageWidth = image.outerWidth();
+    var imageSrc = image.attr('src');
+
+    if(!imageSrc.includes('http')){
+        // if local image
+        var arr = imageSrc.split('.');
+        path = arr[0];
+        ext = arr[1];
+        if(imageWidth < 400 && !imageSrc.includes('400')) {
+            image.attr('src',path.substring(0, path.lastIndexOf("-") + 1)+'400px.'+ext);
+        } else if (imageWidth > 400 && imageWidth < 800 && !imageSrc.includes('800')) {
+            image.attr('src',path.substring(0, path.lastIndexOf("-") + 1)+'800px.'+ext);
+        } else if (imageWidth > 800 && imageWidth < 1200 && !imageSrc.includes('1200')) {
+            image.attr('src',path.substring(0, path.lastIndexOf("-") + 1)+'1200px.'+ext);
+        } else if (imageWidth > 1200 && !imageSrc.includes('full')) {
+            image.attr('src',path.substring(0, path.lastIndexOf("-") + 1)+'full.'+ext);
+        }
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function() {
 
     $("#newsletter-form").submit(function(e){
@@ -88,6 +110,14 @@ document.addEventListener("DOMContentLoaded", function() {
             email: $("#email-input").val()
         };
         submitForm($(this), "https://sessionsbysteven.herokuapp.com/api/mcSignup", data);
-    })
+    });
+
+    $(window).resize(function() {
+        $('img').each(function(el){
+            if($(this).attr('src').includes('images_')){
+                resizeImages($(this));
+            }
+        });
+    }).resize();
 
 });
