@@ -9,16 +9,21 @@ function saveUserInput(){
         var value = input.val();
         values.push(value);
     });
-    allowLocalStorageClear();
-    var json = JSON.stringify(values);
-    localStorage.setItem(location.pathname, json);
-    displayNotification("Saved to your browser.", "success", true);
-    return json;
+    if(values.join("") !== "") {
+        allowLocalStorageClear();
+        displayNotification("Saved to your browser.", "success", true);
+        var json = JSON.stringify(values);
+        localStorage.setItem(location.pathname, json);
+        return json;
+    } else null;
+    
 }
 
 function clearLocalStorage(){
     var clear = confirm("Delete your answers for this exercise from your web browser? This can't be undone.");
     if(clear) localStorage.removeItem(location.pathname);
+    populateInputFields();
+    return;
 }
 
 function allowLocalStorageClear(){
@@ -31,9 +36,9 @@ function populateInputFields(){
     console.log(values);
     // remove empty strings
     if(values){
-        allowLocalStorageClear();
         values.forEach(function(value){
             if(value !== ""){
+                allowLocalStorageClear();
                 $(".article--exercise").find(':input:not(button)').not('.dont-save').each(function(i){
                     var input = $(this);
                     input.val(values[i]);
@@ -103,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.onkeypress=function(e){
         clearTimeout(typingTimer);
-        // saveUserInput();
+        allowLocalStorageClear();
         typingTimer = setTimeout(saveUserInput, doneTypingInterval);
     };
 
@@ -125,11 +130,4 @@ document.addEventListener("DOMContentLoaded", function() {
         populateInputFields();
     });
 
-    // $(".footer").click(function(e){
-    //     e.preventDefault();
-    //     alert('tada');
-    //     var jsonData = saveUserInput();
-    //     saveUserInputToDB(jsonData);
-    // });
-   
 });
