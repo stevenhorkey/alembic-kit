@@ -2,7 +2,7 @@
 title: Loving Kindness Meditation
 categories:
 - Exercises
-feature_image: "https://picsum.photos/2560/600?image=872"
+feature_image: "https://images.unsplash.com/photo-1523681504355-8b4860f99a58?ixlib=rb-1.2.1&auto=format&fit=crop&w=2851&q=80"
 layout: exercise
 description: Are you quite harsh on yourself and others? Maybe even more so lately? Set aside your skepticism about meditation, because this as a regular practice will solve that problem.
 ---

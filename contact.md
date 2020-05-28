@@ -1,6 +1,6 @@
 ---
 title: Contact
-
+description: Have a comment, question, or recommendation? Feel free to send me an email here.
 ---
 
 <p class='text-center'>Have a comment, question, or recommendation?<br/> Feel free to send me an email using the form below. </p>

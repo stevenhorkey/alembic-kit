@@ -12,6 +12,8 @@ sitemap: false
       {
         "title": {{ doc.title | jsonify }},
         "excerpt": {{ doc.excerpt | markdownify | strip_html | jsonify }},
+        "description": {{ doc.description | markdownify | strip_html | jsonify }},
+        "search": {{ doc.search | jsonify }},
         "content": {{ doc.content | markdownify | strip_html | jsonify }},
         "url": {{ site.baseurl | append: doc.url | jsonify }}
       },
@@ -22,6 +24,8 @@ sitemap: false
   {
     "title": {{ page.title | jsonify }},
     "excerpt": {{ page.excerpt | markdownify | strip_html | jsonify }},
+    "description": {{ page.description | markdownify | strip_html | jsonify }},
+    "search": {{ page.search | jsonify }},
     "content": {{ page.content | markdownify | strip_html | jsonify }},
     "url": {{ site.baseurl | append: page.url | jsonify }}
   }{% unless forloop.last %},{% endunless %}

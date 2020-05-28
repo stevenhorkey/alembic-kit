@@ -2,7 +2,7 @@
 title: Your Passion-to-Time Ratio
 categories:
 - Exercises
-feature_image: "https://picsum.photos/2560/600?image=872"
+feature_image: "https://images.unsplash.com/photo-1524678714210-9917a6c619c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2849&q=80"
 layout: exercise
 description: Ever consider how much of your week is actually making you feel alive? Neither did I... until I couldn't afford to anymore. Take stock of what is contributing to, and taking from, your energy for life.
 ---

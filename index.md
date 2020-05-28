@@ -3,7 +3,7 @@ title: What Is "Partial Perspectives?"
 feature_text: |
   ## Partial Perspectives
   An attempt to build sense and structure through simple online exercises and worksheets.
-feature_image: "https://images.unsplash.com/photo-1474149609615-ce5628f98c80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
+feature_image: "/assets/images/headers/pp_.png"
 excerpt: "Alembic is a starting point for [Jekyll](https://jekyllrb.com/) projects. Rather than starting from scratch, this boilerplate is designed to get the ball rolling immediately. Install it, configure it, tweak it, push it."
 layout: home
 aside: true
@@ -11,9 +11,14 @@ aside: true
 
 <style>
   .feature {
-    background-position: bottom center;
+    background-position: center center;
     min-height: 80vh;
     margin: 0;
+  }
+  .feature h2,
+  .feature p {
+    color: white;
+    text-shadow: black 2px 2px;
   }
 </style>
 

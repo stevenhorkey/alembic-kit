@@ -22,20 +22,23 @@
   function findResults(termToMatch, pages) {
     return pages.filter(item => {
       const regex = new RegExp(termToMatch, 'gi');
-      return item.title.match(regex) || item.content.match(regex);
+      return item.title.match(regex) || item.description.match(regex);
     });
   }
 
   function displayResults() {
     const resultsArray = findResults(this.value, pages);
     const html = resultsArray.map(item => {
-      return `
+      console.log(item);
+      if(item.description.trim() !== ""){
+        return `
         <li class="item  item--result">
           <article class="article  typeset">
             <h4><a href="${item.url}">${item.title}</a></h4>
-            <p>${item.excerpt}</p>
+            <p>${item.description}</p>
           </article>
         </li>`;
+      }
     }).join('');
     if ((resultsArray.length == 0) || (this.value == '')) {
       resultsList.innerHTML = `<p>Sorry, nothing was found</p>`;

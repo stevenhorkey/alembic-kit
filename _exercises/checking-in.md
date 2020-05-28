@@ -2,7 +2,7 @@
 title: Checking In
 categories:
 - Exercises
-feature_image: "https://picsum.photos/2560/600?image=872"
+feature_image: "https://images.unsplash.com/photo-1557433127-5e3aba6e9e71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2838&q=80"
 layout: exercise
 description: Here you are, moving with the business of unconscious life. _But are you even okay_? Figure out what you're rocking and what's sapping your energy. If you can't appreciate yourself and your situation right now, how do you ever expect to in any circumstance?
 ---
@@ -13,17 +13,17 @@ Without looking at our personal and shared successes, however small they are, we
 
 AKA: We model lack of self respect.
 
-This exercise attempts to train the opposite.
+This exercise attempts to entrain the opposite.
 
-It's simple, you have two questions to consider. 
+It's simple and you have two questions to consider. 
 
 Take a deep breath, center yourself in the midst of whatever you are experiencing right now.
 
-What ever you're going through. 
+Whatever you're going through. 
 
-Who ever you think you are.
+Whomever you think you are.
 
-Let it rest, it'll be there waiting for you when you return. 
+Let it rest - it'll be there waiting for you when you return. 
 
 Now consider...
 
