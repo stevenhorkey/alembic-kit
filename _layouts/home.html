@@ -11,10 +11,12 @@ layout: default
     </div>
   </div> -->
 <header class="header">
-    <div class="container">
-      {% if site.logo %}{% include site-logo.html %}{% endif %}
-  
-      {% include nav-header.html %}
+    <div class="header-nav">
+      <div class="container">
+        {% if site.logo %}{% include site-logo.html %}{% endif %}
+      
+        {% include nav-header.html %}
+      </div>
     </div>
   
     {% include home-feature.html %}

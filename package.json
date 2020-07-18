@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stevenhorkey/alembic-kit.git"
+    "url": "git+https://github.com/stevenfero/alembic-kit.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/stevenhorkey/alembic-kit/issues"
+    "url": "https://github.com/stevenfero/alembic-kit/issues"
   },
-  "homepage": "https://github.com/stevenhorkey/alembic-kit#readme",
+  "homepage": "https://github.com/stevenfero/alembic-kit#readme",
   "dependencies": {
     "del": "^5.1.0",
     "gulp": "^4.0.2",

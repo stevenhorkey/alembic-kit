@@ -40,10 +40,10 @@ paginate: 10 # jekyll-paginate > items per page
 paginate_path: blog/page:num # jekyll-paginate > blog page
 jekyll-mentions: https://twitter.com # jekyll-mentions > service used when @replying
 twitter:
-  username: stevenhorkey # jekyll-seo-tag > Owners twitter username
-author: Steven Horkey # jekyll-seo-tag > default author
+  username: stevenfero # jekyll-seo-tag > Owners twitter username
+author: Steven Fero # jekyll-seo-tag > default author
 social: # jekyll-seo-tag > social overrides
-  name: Steven Horkey # jekyll-seo-tag > real name
+  name: Steven Fero # jekyll-seo-tag > real name
   links:  # jekyll-seo-tag > social aliases (sameAs)
     - https://twitter.com/DavidDarnes
     - https://www.facebook.com/daviddarnes
@@ -109,7 +109,7 @@ description: "Alembic is a starting point for Jekyll projects. Rather than start
 url: "https://partialperspectives.com" # Site url, also used in jekyll-seo-tag
 baseurl: ""
 repo: "https://github.com/daviddarnes/alembic"
-email: "stevenhorkey@gmail.com"
+email: "stevenfero@gmail.com"
 # disqus: "alembic-1" # Blog post comments, uncomment the option and set the site ID from your Disqus account
 # google_analytics: ''
 # google_analytics_anonymize_ip: ''
@@ -131,6 +131,8 @@ favicons: # Favicons are also used in the manifest file. Syntax is 'size: path'
 navigation_header:
 - title: Home
   url: /
+- title: Music
+  url: /music
 - title: Courses
   url: /courses/
 - title: Life
@@ -144,7 +146,7 @@ navigation_header:
 
 
 navigation_footer:
-- title: Created by Steven Horkey of Everything In All - A Life & Music Project
+- title: Created by Steven Fero of Everything In All - A Life & Music Project
   url: https://darn.es
 
 social_links: # Appears in sidebar. Set the urls then uncomment and comment out as desired

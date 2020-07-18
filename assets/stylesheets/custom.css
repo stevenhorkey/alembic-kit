@@ -120,9 +120,6 @@ ion-icon[name='close-circle-outline']{
   cursor: pointer;
 }
 
-.item--nav a {
-  color: black;
-}
 
 .logo div {
   color: black;

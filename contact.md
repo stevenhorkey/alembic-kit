@@ -6,7 +6,7 @@ description: Have a comment, question, or recommendation? Feel free to send me a
 <p class='text-center'>Have a comment, question, or recommendation?<br/> Feel free to send me an email using the form below. </p>
 
 <div class='flex-center mb-5' style="justify-content:center">
-  <img src="/assets/images/steven.jpg" style="width: 100px;
+  <img src="/assets/images/steve.jpg" style="width: 100px;
       border-radius: 50%;" class='d-inline box-shadow mr-2' />
   <span>
     <div>Stay well ❤️</div>

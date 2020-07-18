@@ -56,6 +56,16 @@ body {
   overflow: hidden;
 }
 
+.header {
+  .header-nav {
+    background: $headingColour;
+    color: $white;
+    a {
+      color: $white;
+    }
+  }
+}
+
 .feature {
   padding-bottom: .4rem;
   margin-bottom: 1.6rem;

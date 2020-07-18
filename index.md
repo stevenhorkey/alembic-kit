@@ -3,8 +3,8 @@ title: Home
 title2: What Is "Partial Perspectives?"
 feature_text: |
   # Partial Perspectives
-  An attempt to build sense and structure through simple online exercises and worksheets.
-feature_image: "/assets/images/headers/homeh-full.png"
+  Music & Tools to Thrive Within The Human Condition.
+feature_image: "/assets/images/headers/alex-cook-KDs0SN_G36Q-unsplash.jpg"
 excerpt: "Alembic is a starting point for [Jekyll](https://jekyllrb.com/) projects. Rather than starting from scratch, this boilerplate is designed to get the ball rolling immediately. Install it, configure it, tweak it, push it."
 layout: home
 aside: true
@@ -57,7 +57,7 @@ Take a look below to see some of the latest exercises, and don't hesitate to con
 Lastly, take care of yourself and take care of others... but in that order. 
 
 <div class='flex-center' style="justify-content:left">
-  <img src="/assets/images/steven.jpg" style="width: 100px;
+  <img src="/assets/images/steve.jpg" style="width: 100px;
       border-radius: 50%;" class='d-inline box-shadow mr-2' />
   <span>
     <div>Stay well ❤️</div>
